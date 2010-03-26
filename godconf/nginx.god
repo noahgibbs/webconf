@@ -3,14 +3,14 @@
 # Keeps WantMyJob's main server process running
 
 nginx_bin = "/usr/local/nginx/sbin/nginx"
-nginx_config = "/home/angelbob/god/nginx.conf"
+nginx_config = "/home/www/checkouts/webconf/nginx.conf"
 
 God.watch do |w|
   w.name = "nginx"
   w.interval = 30.seconds # default      
   w.start = "#{nginx_bin} -c #{nginx_config}"
-  w.stop = "kill `cat /usr/local/nginx/logs/nginx.pid`; killall nginx"
-  w.pid_file = "/usr/local/nginx/logs/nginx.pid"
+  w.stop = "kill `cat /home/www/pids/nginx.pid`; killall nginx"
+  w.pid_file = "/home/www/pids/nginx.pid"
   w.start_grace = 10.seconds
   w.restart_grace = 10.seconds
 

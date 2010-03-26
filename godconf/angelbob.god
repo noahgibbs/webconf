@@ -2,7 +2,7 @@
 # 
 # Keeps the Angelbob blog's mongrel processes running
 
-AB_RAILS_ROOT = "/home/angelbob/deploy/blog"
+AB_RAILS_ROOT = "/home/www/checkouts/blog"
 ENV['BLOG_PASSWORD'] = "Opus23HE"
 
 %w{5000}.each do |port|
@@ -10,12 +10,12 @@ ENV['BLOG_PASSWORD'] = "Opus23HE"
     w.name = "angelbob-mongrel-#{port}"
     w.interval = 30.seconds # default      
     w.start = "mongrel_rails start -c #{AB_RAILS_ROOT} -p #{port} \
-      -P #{AB_RAILS_ROOT}/log/mongrel.#{port}.pid  -d -e production"
-    w.stop = "mongrel_rails stop -P #{AB_RAILS_ROOT}/log/mongrel.#{port}.pid"
-    w.restart = "mongrel_rails restart -P #{AB_RAILS_ROOT}/log/mongrel.#{port}.pid"
+      -P /home/www/pids/mongrel.#{port}.pid  -d -e production"
+    w.stop = "mongrel_rails stop -P /home/www/pids/mongrel.#{port}.pid"
+    w.restart = "mongrel_rails restart -P /home/www/pids/mongrel.#{port}.pid"
     w.start_grace = 10.seconds
     w.restart_grace = 10.seconds
-    w.pid_file = File.join(AB_RAILS_ROOT, "log/mongrel.#{port}.pid")
+    w.pid_file = "/home/www/pids/mongrel.#{port}.pid"
 
     w.behavior(:clean_pid_file)
 

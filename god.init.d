@@ -21,7 +21,7 @@ PATH=/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/bin
 case "$1" in
   start|"")
 	[ "$VERBOSE" = no ] || log_action_begin_msg "Initializing God process monitor"
-        /usr/local/bin/god -c /home/angelbob/god/god.conf
+        /usr/local/bin/god -c /home/www/checkouts/webconf/god.conf
 	[ "$VERBOSE" = no ] || log_action_end_msg "Initialized God process monitor"
 	;;
   stop)
