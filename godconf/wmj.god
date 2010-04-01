@@ -7,14 +7,16 @@ RAILS_ROOT = "/home/www/checkouts/wantmyjob"
 %w{8200 8201 8202}.each do |port|
   God.watch do |w|
     w.name = "wmj-mongrel-#{port}"
+    w.uid = 'www'
+    w.gid = 'www'
     w.interval = 30.seconds # default      
-    w.start = "mongrel_rails start -c #{RAILS_ROOT} -p #{port} \
-      -P /home/www/pids/mongrel.#{port}.pid  -d -e production"
-    w.stop = "mongrel_rails stop -P /home/www/pids/mongrel.#{port}.pid"
-    w.restart = "mongrel_rails restart -P /home/www/pids/mongrel.#{port}.pid"
+    w.start = "cd #{RAILS_ROOT} && mongrel_rails start -c #{RAILS_ROOT} -p #{port} \
+-P #{RAILS_ROOT}/log/mongrel.#{port}.pid -l #{RAILS_ROOT}/log/mongrel.#{port}.log -d -e production"
+    w.stop = "mongrel_rails stop -P #{RAILS_ROOT}/log/mongrel.#{port}.pid"
+    w.restart = "mongrel_rails restart -P #{RAILS_ROOT}/log/mongrel.#{port}.pid"
     w.start_grace = 10.seconds
     w.restart_grace = 10.seconds
-    w.pid_file = "/home/www/pids/mongrel.#{port}.pid"
+    w.pid_file = "#{RAILS_ROOT}/log/mongrel.#{port}.pid"
     
     w.behavior(:clean_pid_file)
 

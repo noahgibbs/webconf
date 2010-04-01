@@ -7,15 +7,17 @@ ENV['BLOG_PASSWORD'] = "Opus23HE"
 
 %w{5000}.each do |port|
   God.watch do |w|
-    w.name = "angelbob-mongrel-#{port}"
+    w.name = "blog-mongrel-#{port}"
+    w.uid = 'www'
+    w.gid = 'www'
     w.interval = 30.seconds # default      
     w.start = "mongrel_rails start -c #{AB_RAILS_ROOT} -p #{port} \
-      -P /home/www/pids/mongrel.#{port}.pid  -d -e production"
-    w.stop = "mongrel_rails stop -P /home/www/pids/mongrel.#{port}.pid"
-    w.restart = "mongrel_rails restart -P /home/www/pids/mongrel.#{port}.pid"
+-P #{AB_RAILS_ROOT}/log/mongrel.#{port}.pid -l #{AB_RAILS_ROOT}/log/mongrel.#{port}.log -d -e production"
+    w.stop = "mongrel_rails stop -P #{AB_RAILS_ROOT}/log/mongrel.#{port}.pid"
+    w.restart = "mongrel_rails restart -P #{AB_RAILS_ROOT}/log/mongrel.#{port}.pid"
     w.start_grace = 10.seconds
     w.restart_grace = 10.seconds
-    w.pid_file = "/home/www/pids/mongrel.#{port}.pid"
+    w.pid_file = "#{AB_RAILS_ROOT}/log/mongrel.#{port}.pid"
 
     w.behavior(:clean_pid_file)
 
