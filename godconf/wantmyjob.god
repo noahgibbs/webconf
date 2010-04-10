@@ -4,7 +4,7 @@
 
 RAILS_ROOT = "/home/www/checkouts/wantmyjob"
 
-%w{8200 8201 8202}.each do |port|
+%w{8200 8201}.each do |port|
   God.watch do |w|
     w.name = "wmj-mongrel-#{port}"
     w.uid = 'www'
