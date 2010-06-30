@@ -2,7 +2,7 @@
 # 
 # Keeps WantMyJob's main server process running
 
-nginx_bin = "/usr/local/nginx/sbin/nginx"
+nginx_bin = "/opt/nginx/sbin/nginx"
 nginx_config = "/home/www/checkouts/webconf/nginx.conf"
 
 God.watch do |w|
