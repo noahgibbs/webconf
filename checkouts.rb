@@ -17,4 +17,5 @@ repos.each do |repo_name, repo_path|
   Dir.chdir File.join(WebRoot, repo_name.to_s)
   system "git pull origin master" if repo_path
   system "touch tmp/restart.txt"
+  system "git status"
 end
