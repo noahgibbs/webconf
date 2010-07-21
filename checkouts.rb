@@ -22,8 +22,9 @@ end
 # refresh all repositories
 repos.each do |repo_name, repo_path|
   puts "Refreshing #{repo_name}"
-  Dir.chdir File.join(WebRoot, repo_name.to_s)
+  this_dir = File.join(WebRoot, repo_name.to_s)
+  Dir.chdir this_dir
   system "git pull origin master" if repo_path
-  system "touch tmp/restart.txt"
+  system "touch tmp/restart.txt" if File.exists?(File.join(this_dir, "tmp"))
   system "git status"
 end
