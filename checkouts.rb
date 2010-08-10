@@ -4,10 +4,11 @@ repos = {
   :blog => 'git@github.com:noahgibbs/blog.git',
   :www_static => 'git@git.assembla.com:angelbobwww.git',
   :refactor_it => 'git@github.com:noahgibbs/refactor_it.git',
-  :wantmyjob => nil,
+  :wantmyjob => 'git@git.assembla.com:wantmyjob.git',
   :shannasdaddy => nil,#'ssh://angelbob@arch.angelbob.com/home/angelbob/src/master/shannasdaddy.git',
   :webconf => 'git@github.com:noahgibbs/webconf.git',
   "cheaptoad-catcher".to_sym => 'git@github.com:noahgibbs/cheaptoad-catcher.git',
+  :astrino3 => 'git@github.com:noahgibbs/astrino3.git',
 }
 
 WebRoot = File.join(File.expand_path(File.dirname(__FILE__)), "..")
