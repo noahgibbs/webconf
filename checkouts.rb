@@ -25,7 +25,10 @@ repos.each do |repo_name, repo_path|
   puts "Refreshing #{repo_name}"
   this_dir = File.join(WebRoot, repo_name.to_s)
   Dir.chdir this_dir
-  system "git pull origin master" if repo_path
+  system "git pull origin master --rebase" if repo_path
   system "touch tmp/restart.txt" if File.exists?(File.join(this_dir, "tmp"))
   system "git status"
+  gemfile = File.join this_dir, "Gemfile"
+  puts "Doing bundler install" if File.exists?(gemfile)
+  system "passenger_ruby -S bundle install" if File.exists?(gemfile)
 end
