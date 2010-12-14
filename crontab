@@ -1,3 +1,3 @@
-@daily /usr/local/bin/fyi "/bin/bash \"cd ~www/checkouts/wantmyjob && RAILS_ENV=production /usr/local/bin/passenger_ruby -S rake cron_daily\""
-@hourly /usr/local/bin/fyi "/bin/bash \"cd ~www/checkouts/wantmyjob && RAILS_ENV=production /usr/local/bin/passenger_ruby -S rake cron_hourly\""
+@daily /usr/local/bin/fyi "/bin/bash \"cd ~www/checkouts/wantmyjob && RAILS_ENV=production /usr/local/bin/passenger_ruby -S /usr/local/bin/rake cron_daily\""
+@hourly /usr/local/bin/fyi "/bin/bash \"cd ~www/checkouts/wantmyjob && RAILS_ENV=production /usr/local/bin/passenger_ruby -S /usr/local/bin/rake cron_hourly\""
 @daily /usr/local/bin/fyi "cd ~www/checkouts/webconf && ./mysqlbackup.sh"
