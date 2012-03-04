@@ -2,8 +2,7 @@
 
 repos = {
   :blog => 'git@github.com:noahgibbs/blog.git',
-  :www_static => 'git@git.assembla.com:angelbobwww.git',
-  :wantmyjob => 'git@github.com:noahgibbs/wantmyjob.com.git',
+  :www_static => 'git@github.com:noahgibbs/www_static.git',
   :webconf => 'git@github.com:noahgibbs/webconf.git',
 }
 
