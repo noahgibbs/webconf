@@ -12,7 +12,7 @@ Bluepill.application("nginx") do |app|
     process.daemonize = true
     process.start_grace_time = 10.seconds
     process.restart_grace_time = 10.seconds
-    process.stop_grace_time = 5.seconds
+    process.stop_grace_time = 40.seconds
 
     process.checks :flapping, :times => 2, :within => 30.seconds, :retry_in => 10.seconds
   end
