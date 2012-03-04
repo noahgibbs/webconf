@@ -1,8 +1,0 @@
-passenger-install-nginx-module (--help to set up non-interactive)
-bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
-echo "The rvm line above is for user, not root!  Root does it differently."
-echo "Fix up .bashrc for rvm"
-wget -c http://sqlite.org/sqlite-amalgamation-3.7.0.tar.gz
-echo "After installing RVM, wrap passenger_ruby, *then* install gems"
-echo "Install NGinX with passenger..."
-Set bind-address in /etc/mysql/my.conf to local IP address for remote access
