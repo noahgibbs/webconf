@@ -6,8 +6,8 @@ Nginx_config = "/home/www/checkouts/webconf/nginx.conf"
 Bluepill.application("nginx") do |app|
   app.process("nginx_server") do |process|
     process.start_command = "#{Nginx_bin} -c #{Nginx_config}"
-    process.stop_signals = [ :quit, 30.seconds, :term, 5.seconds, :kill]
-    process.stop_command = "kill -QUIT $( cat /home/www/pids/nginx.pid )"
+    process.restart_command = "#{Nginx_bin} -c #{Nginx_config} -s reload"
+    process.stop_command = "#{Nginx_bin} -c #{Nginx_config} -s stop"
     process.pid_file = "/home/www/pids/nginx.pid"
     process.daemonize = true
     process.start_grace_time = 10.seconds
