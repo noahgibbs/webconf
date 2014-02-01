@@ -1,9 +1,11 @@
 #!/usr/bin/env ruby
 
+# This list of repos is long obsolete.  And this whole undertaking
+# should be replaced by Chef or Puppet.
 repos = {
-  :blog => 'git@github.com:noahgibbs/blog.git',
-  :www_static => 'git@github.com:noahgibbs/www_static.git',
-  :webconf => 'git@github.com:noahgibbs/webconf.git',
+#  :blog => 'git@github.com:noahgibbs/blog.git',
+#  :www_static => 'git@github.com:noahgibbs/www_static.git',
+#  :webconf => 'git@github.com:noahgibbs/webconf.git',
 }
 
 WebRoot = File.join(File.expand_path(File.dirname(__FILE__)), "..")
